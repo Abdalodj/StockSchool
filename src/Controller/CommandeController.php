@@ -101,7 +101,13 @@ class CommandeController extends AbstractController
         else
         {
         $name = $session->get('name');
-        $compteur = $compteurRepository->find(1);
+        $compteurn=new Compteur();
+        $compteurn->setNumcom(count($compteurRepository->findAll())+1);
+        $compteurn->setNuml(count($compteurRepository->findAll())+1);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($compteurn);
+        $em->flush();
+        $compteur = $compteurRepository->findBy(array(),array('numcom'=>'DESC'),1,0)[0];
         $numc= $compteur->getNumcom();
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
@@ -159,7 +165,6 @@ class CommandeController extends AbstractController
             $compteur->setNumcom($numc+1);
             $em->persist($compteur);
             $em->flush();
-            $session->clear();
             }
              else if($choix =="Add"){
             $montht = $lcommande->getPv()*$lcommande->getQte();

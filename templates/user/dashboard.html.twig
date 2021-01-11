@@ -27,8 +27,8 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box dark-bg">
               <i class="fa fa-thumbs-o-up"></i>
-              <div class="count">4.362</div>
-              <div class="title">Order</div>
+              <div class="count">{{numberOrder}}</div>
+              <div class="title">Commandes</div>
             </div>
             <!--/.info-box-->
           </div>
@@ -37,7 +37,7 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box green-bg">
               <i class="fa fa-cubes"></i>
-              <div class="count">1.426</div>
+              <div class="count">{{stockNumber}}</div>
               <div class="title">Stock</div>
             </div>
             <!--/.info-box-->
@@ -49,6 +49,13 @@
           <!--/col-->
        
           <!--/col-->
-
+       
         </div>
+       <a  href="{{ path('dashboard_show')}}" class='btn btn-success' id="js-show">Afficher les graphiques</a>
+        <canvas  hidden id="doughnut-chart" class='js-chart' style="width:450px;height:250px;"></canvas>
+        <canvas hidden id="bar-chart" class='js-chart'  style="width:450px;height:250px;" ></canvas>
         {% endblock %}
+      {% block javascripts %}
+  <script src="{{asset('assets/js/showChart.js')}}"></script>
+  
+      {% endblock %}  

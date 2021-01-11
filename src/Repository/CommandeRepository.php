@@ -36,6 +36,32 @@ class CommandeRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param int $month
+     * @param int $year
+     * 
+     * @return Commande[]
+     */
+    public function findByDate($year = null, $month = null)
+    {
+        if ($month === null) {
+            $month = (int) date('m');
+        }
+
+        if ($year === null) {
+            $year = (int) date('Y');
+        }
+        if($month<10){
+            $month="0"."".$month;
+        }
+        $nextMonth=$month+1;
+        return  $this->createQueryBuilder('c')
+                   ->where('c.datecomm BETWEEN :start AND :end')
+                   ->setParameter('start',"$year-$month-01")
+                   ->setParameter('end',"$year-$nextMonth-01")
+                   ->getQuery()
+                   ->getResult();
+    }
     /*
     public function findOneBySomeField($value): ?Commande
     {

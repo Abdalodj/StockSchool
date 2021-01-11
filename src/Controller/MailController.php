@@ -20,10 +20,10 @@ class MailController extends AbstractController
      */
     public function index(\Swift_Mailer $mailer) : Response
     {
-        $name = "Foulen";
+        $name = "membre de la tdsi";
        $message = (new \Swift_Message('Bonjour'))
-        ->setFrom('testab.symfony@gmail.com')
-        ->setTo('testab.symfony@gmail.com')
+        ->setFrom('bamba.tdsi@gmail.com')
+        ->setTo('bamba.tdsi@gmail.com')
         ->setBody('Bonjour');
     $mailer->send($message);
     $this->addFlash('notice', 'Email sent');

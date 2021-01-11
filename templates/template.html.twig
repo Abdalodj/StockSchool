@@ -180,7 +180,7 @@
               </li>
               <li>
                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="{{asset('assets/img/avatar-mini4.jpg"')}}></span>
+                                    <span class="photo"><img alt="avatar" src="{{asset('assets/img/avatar-mini4.jpg')}}"></span>
                                     <span class="subject">
                                     <span class="from">Bob   Mckenzie</span>
                                     <span class="time">5 mins</span>
@@ -272,7 +272,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="{{asset('assets/img/avatar-mini4.jpg')}}">
                             </span>
-                            <span class="username">{{name}}</span>
+                            <span class="username">Bamba</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -427,6 +427,19 @@
 
               </ul>
           </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_table"></i>
+                          <span>Utilisateurs</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" href="{{ path('user_new')}}"> Add User</a></li>
+              <li><a class="" href="{{ path('user_list')}}">Liste User</a></li>
+              
+
+              </ul>
+          </li>
            <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_table"></i>
@@ -464,7 +477,6 @@
 {% block body %}
    
 {% endblock %}
-
 </div>
         </div>
 
@@ -501,7 +513,7 @@
   <!-- container section start -->
 <!-- javascripts -->
   <script src="{{asset('assets/js/jquery.js')}}"></script>
-  <script src="{{asset('assets/js/jquery-ui-1.10.4.min.js')}}²"></script>
+  <script src="{{asset('assets/js/jquery-ui-1.10.4.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery-1.8.3.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('assets/js/jquery-ui-1.9.2.custom.min.js')}}"></script>
   <!-- bootstrap -->
@@ -510,12 +522,12 @@
   <script src="{{asset('assets/js/jquery.scrollTo.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
   <!-- charts scripts -->
-  <script src="assets/jquery-knob/{{asset('assets/js/jquery.knob.js')}}"></script>
+  <script src="{{asset('assets/js/jquery.knob.min.js')}}"></script>
   <script src="{{asset('assets/js/jquery.sparkline.js')}}" type="text/javascript"></script>
   <script src="{{asset('assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js')}}"></script>
   <script src="{{asset('assets/js/owl.carousel.js')}}"></script>
   <!-- jQuery full calendar -->
-  <<script src="{{asset('assets/js/fullcalendar.min.js')}}"></script>
+  <script src="{{asset('assets/js/fullcalendar.min.js')}}"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="{{asset('assets/assets/fullcalendar/fullcalendar/fullcalendar.js')}}"></script>
     <!--script for this page only-->
@@ -540,7 +552,13 @@
     <script src="{{asset('assets/js/sparklines.js')}}"></script>
     <script src="{{asset('assets/js/charts.js')}}"></script>
     <script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  
+{% block javascripts %}{% endblock %}
+
     <script>
+
       //knob
       $(function() {
         $(".knob").knob({
