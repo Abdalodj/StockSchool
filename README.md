@@ -1,2 +1,1 @@
-# StockSchool
-A stock management system with symfony for school exam
+# Gestion-commerciale-symfony-4
